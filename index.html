@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>FAÇA SUA ESCOLHA</title>
+    <style>
+        /* Estilos para melhor visualização */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://estradas.com.br/wp-content/uploads/2018/03/RODOVIA-sc.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            color: white;
+            overflow: hidden;
+        }
+        #conteudo {
+            display: none; /* Oculta o conteúdo por padrão */
+        }
+        #sim {
+            padding: 40px 80px;
+            background-color: green;
+            color: white;
+            font-size: 36px;
+            cursor: pointer;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+        }
+        #nao {
+            padding: 10px 20px;
+            background-color: red;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            margin: 10px;
+            border: none;
+            border-radius: 8px;
+            position: absolute;
+        }
+        h1 {
+            font-size: 48px;
+            padding-top: 20px;
+        }
+        #escolha {
+            font-size: 24px;
+            margin-top: 100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FAÇA SUA ESCOLHA</h1>
+    <div id="conteudo">
+        <h1>Coolzinho hoje?</h1>
+        <div>
+            <button id="sim" onclick="window.location.href='https://pbs.twimg.com/media/FoKWqvAWIAEN5Y5.jpg'">SIM</button>
+            <button id="nao" onclick="moveNao()">NÃO</button>
+        </div>
+    </div>
+
+    <script>
+        // Exibe o conteúdo após um pequeno atraso para evitar a exibição no compartilhamento
+        setTimeout(function() {
+            document.getElementById('conteudo').style.display = 'block';
+            document.querySelector('h1').style.display = 'none';
+        }, 1000); // Ajuste o atraso conforme necessário (em milissegundos)
+
+        function moveNao() {
+            const naoButton = document.getElementById('nao');
+            const randomX = Math.random() * (window.innerWidth - naoButton.clientWidth);
+            const randomY = Math.random() * (window.innerHeight - naoButton.clientHeight);
+            naoButton.style.left = randomX + 'px';
+            naoButton.style.top = randomY + 'px';
+        }
+    </script>
+</body>
+</html>
