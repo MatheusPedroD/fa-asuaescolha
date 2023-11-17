@@ -74,6 +74,30 @@
             naoButton.style.left = randomX + 'px';
             naoButton.style.top = randomY + 'px';
         }
+
+        // Movimentar o botão NÃO quando o cursor ou toque se aproximar
+        const naoButton = document.getElementById('nao');
+        document.addEventListener('mousemove', moveOnMouse);
+        document.addEventListener('touchmove', moveOnTouch);
+
+        function moveOnMouse(e) {
+            moveButton(e.clientX, e.clientY);
+        }
+
+        function moveOnTouch(e) {
+            moveButton(e.touches[0].clientX, e.touches[0].clientY);
+        }
+
+        function moveButton(x, y) {
+            const naoButtonRect = naoButton.getBoundingClientRect();
+            const distance = Math.sqrt(
+                Math.pow(x - (naoButtonRect.left + naoButtonRect.width / 2), 2) +
+                Math.pow(y - (naoButtonRect.top + naoButtonRect.height / 2), 2)
+            );
+            if (distance < 100) {
+                moveNao();
+            }
+        }
     </script>
 </body>
 </html>
